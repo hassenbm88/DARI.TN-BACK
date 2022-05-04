@@ -1,12 +1,17 @@
 package com.bezkoder.springjwt.models;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 @Entity
 @Table(	name = "users", 
@@ -31,6 +36,20 @@ public class User {
 	@NotBlank
 	@Size(max = 120)
 	private String password;
+	
+	 
+	 private String nameOnCard;
+
+	 private String cardNumber;
+	    
+	 private int cvv;
+
+	 private String address;
+	
+	//attribut hazem
+	
+	
+	
 
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(	name = "user_roles", 
@@ -95,6 +114,80 @@ public class User {
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
 	}
+	
+	
+	public String getNameOnCard() {
+		return nameOnCard;
+	}
+
+	public void setNameOnCard(String nameOnCard) {
+		this.nameOnCard = nameOnCard;
+	}
+
+	public String getCardNumber() {
+		return cardNumber;
+	}
+
+	public void setCardNumber(String cardNumber) {
+		this.cardNumber = cardNumber;
+	}
+
+	public int getCvv() {
+		return cvv;
+	}
+
+	public void setCvv(int cvv) {
+		this.cvv = cvv;
+	}
+
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public List<Category> getCategories() {
+		return categories;
+	}
+
+	public void setCategories(List<Category> categories) {
+		this.categories = categories;
+	}
+	
+	
+	public List<Cart> getCarts() {
+		return carts;
+	}
+
+	public void setCarts(List<Cart> carts) {
+		this.carts = carts;
+	}
+
+	public void addCategoryToUser(Category category) {
+		if (getCategories()==null) {
+			this.categories = new ArrayList<>();
+		}
+		getCategories().add(category);
+		category.setUser(this);
+	}
+   
+	public void addCartToUser(Cart cart) {
+		if(getCarts()==null) {
+			this.carts = new ArrayList<>();	
+		}
+		getCarts().add(cart);
+		cart.setUser(this);
+	}
+	public void removeFromCart(Cart cart) {
+		if (getCarts()!=null) {
+			getCarts().remove(cart);
+		}
+	}
+	 
+	
 	/*@OneToMany(mappedBy="user", cascade = CascadeType.ALL)
 	private Set<Proprety>propreties ;	
 	
@@ -108,4 +201,20 @@ public class User {
 	private Set<SousTraitance> traitances;
 	@OneToMany(mappedBy="user", cascade = CascadeType.ALL)
 	private Set<Aide> aides*/
+	
+	
+	//annotation hazem
+	
+	
+	 @JsonProperty(access = Access.AUTO)
+	 @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+	 private List<Category> categories;
+	 
+	 @JsonProperty(access = Access.AUTO)
+	 @OneToMany(cascade = CascadeType.MERGE, mappedBy = "user")
+	 private List<Cart> carts;
+
+	 
+	 
 }
+
