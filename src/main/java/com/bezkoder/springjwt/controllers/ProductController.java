@@ -3,20 +3,19 @@ package com.bezkoder.springjwt.controllers;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-//import com.ecommerce.dao.ProductDao;
-//import com.ecommerce.modal.Product;
-//import com.ecommerce.service.ProductService;
+
 
 import com.bezkoder.springjwt.models.Product;
 import com.bezkoder.springjwt.repository.ProductDao;
 import com.bezkoder.springjwt.interfaces.*;
+
 
 @RestController
 @RequestMapping(value = "/api")
 @CrossOrigin(origins = "*")
 public class ProductController {
 
-	@Autowired
+
 	private ProductService productService;
 
 	@Autowired

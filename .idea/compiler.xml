@@ -8,11 +8,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="spring-boot-security-jwt" />
+        <module name="PI_DEV_4CLOUD-Spring-Boot-" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="PI_DEV_4CLOUD-Spring-Boot-" options="-parameters" />
       <module name="spring-boot-security-jwt" options="-parameters" />
     </option>
   </component>

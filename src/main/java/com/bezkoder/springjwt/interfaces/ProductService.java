@@ -1,10 +1,13 @@
 package com.bezkoder.springjwt.interfaces;
 
 import java.util.List;
-//import com.ecommerce.modal.Product;
+
 
 import com.bezkoder.springjwt.models.Product;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
+@Service
 public interface ProductService {
 	
 	Product addProductToCategory(Product product, long idCategory);

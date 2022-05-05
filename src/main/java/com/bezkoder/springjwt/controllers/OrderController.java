@@ -7,6 +7,8 @@ import java.util.stream.Collectors;
 import javax.validation.constraints.NotNull;
 
 import java.util.Objects;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,6 +31,7 @@ import com.bezkoder.springjwt.models.Order;
 import com.bezkoder.springjwt.models.OrderProduct;
 import com.bezkoder.springjwt.models.OrderStatus;
 import com.bezkoder.springjwt.interfaces.*;
+import com.bezkoder.springjwt.interfaces.ProductService;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
@@ -38,7 +41,6 @@ public class OrderController {
 	ProductService productService;
 	OrderService orderService;
 	OrderProductService orderProductService;
-	
 	public OrderController(ProductService productService, OrderService orderService,
 			OrderProductService orderProductService) {
 		super();
