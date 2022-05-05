@@ -1,4 +1,5 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: HP
 Build-Jdk: 16.0.2
 Implementation-Title: spring-boot-security-jwt
@@ -6,5 +7,14 @@ Implementation-Version: 0.0.1-SNAPSHOT
 Implementation-Vendor-Id: com.bezkoder
 Implementation-URL: https://projects.spring.io/spring-boot/#/spring-boot
  -starter-parent/spring-boot-security-jwt
+=======
+Implementation-Title: spring-boot-security-jwt
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: Fedi
+Implementation-Vendor-Id: com.bezkoder
+Build-Jdk: 1.8.0_60
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/spring-boot-security-jwt
+>>>>>>> origin/fedi
 Created-By: Maven Integration for Eclipse
 
