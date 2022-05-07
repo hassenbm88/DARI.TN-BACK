@@ -1,21 +1,21 @@
 package com.bezkoder.springjwt.controllers;
 
-import java.util.List;
+
+import com.bezkoder.springjwt.interfaces.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-
 import com.bezkoder.springjwt.models.Product;
 import com.bezkoder.springjwt.repository.ProductDao;
-import com.bezkoder.springjwt.interfaces.*;
 
+
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/api")
 @CrossOrigin(origins = "*")
 public class ProductController {
 
-
+	@Autowired
 	private ProductService productService;
 
 	@Autowired
@@ -46,14 +46,11 @@ public class ProductController {
 		return productService.findAllProducts();
 	}
 
-	
-		//recherche par catégorie
 	@GetMapping("/findProductsForCategory/{idCategory}")
 	List<Product> findProductsForCategory(@PathVariable long idCategory) {
 		return productService.findProductsForCategory(idCategory);
 	}
 
-		//recherche par nom 
 	@GetMapping("/findByName/{name}")
 	List<Product> findByName(@PathVariable String name) {
 		return productDao.findByName("%" + name + "%");

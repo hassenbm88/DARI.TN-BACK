@@ -10,19 +10,18 @@ import com.bezkoder.springjwt.models.Tag;
 import com.bezkoder.springjwt.repository.TagDao;
 import com.bezkoder.springjwt.interfaces.TagService;
 
-//import com.ecommerce.dao.TagDao;
-//import com.ecommerce.modal.Product;
-//import com.ecommerce.modal.Tag;
-//import com.ecommerce.service.TagService;
+// import com.ecommerce.dao.TagDao;
+// import com.ecommerce.modal.Product;
+// import com.ecommerce.modal.Tag;
+// import com.ecommerce.service.TagService;
 
 @RestController
 @RequestMapping(value = "/api")
-@CrossOrigin(origins = "*")
-public class TagController {
+@CrossOrigin(origins = "*")public class TagController {
 
 	@Autowired
 	private TagService tagService;
-	
+
 	@Autowired
 	private TagDao tagDao;
 
@@ -35,7 +34,7 @@ public class TagController {
 	List<Tag> findTagsForProduct(@PathVariable long idProduct) {
 		return tagService.findTagsForProduct(idProduct);
 	}
-	
+
 	@GetMapping("/findAllTags")
 	List<Tag> findAllTags() {
 		return tagService.findAllTags();
@@ -45,7 +44,7 @@ public class TagController {
 	void deleteTagFromProduct(@PathVariable long idTag, @PathVariable long idProduct) {
 		tagService.deleteTagFromProduct(idTag, idProduct);
 	}
- 
+
 	@PostMapping("/addTag")
 	Tag addTag(@RequestBody Tag tag) {
 		return tagService.addTag(tag);
@@ -64,8 +63,7 @@ public class TagController {
 	List<Tag> findAllTagByName(@PathVariable String name) {
 		return tagDao.findByName("%" + name + "%");
 	}
-	
-	
+
 	@GetMapping("/findProductsForTag/{idTag}")
 	List<Product> findProductsForTag(@PathVariable long idTag) {
 		return tagService.findProductsForTag(idTag);

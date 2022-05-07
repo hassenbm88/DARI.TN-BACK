@@ -1,12 +1,9 @@
 package com.bezkoder.springjwt.repository;
 
-import java.util.Optional;
-
+import com.bezkoder.springjwt.models.Cart;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.bezkoder.springjwt.models.Cart;
-
-//import com.ecommerce.modal.Cart;
+import java.util.Optional;
 
 public interface CartDao extends JpaRepository<Cart, Long>{
    Optional<Cart> findByName(String name);

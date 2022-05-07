@@ -2,6 +2,7 @@ package com.bezkoder.springjwt.Services;
 
 import java.util.List;
 
+import com.bezkoder.springjwt.repository.CategoryDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -9,7 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.bezkoder.springjwt.interfaces.CategoryService;
 import com.bezkoder.springjwt.models.Category;
 import com.bezkoder.springjwt.models.User;
-import com.bezkoder.springjwt.repository.CategoryDao;
 import com.bezkoder.springjwt.repository.UserRepository;
 
 //import com.ecommerce.dao.CategoryDao;

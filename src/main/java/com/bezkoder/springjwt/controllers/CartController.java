@@ -1,6 +1,5 @@
 package com.bezkoder.springjwt.controllers;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -17,6 +16,8 @@ import com.bezkoder.springjwt.interfaces.*;
 
 //import com.ecommerce.modal.Cart;
 //import com.ecommerce.service.CartService;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/api")

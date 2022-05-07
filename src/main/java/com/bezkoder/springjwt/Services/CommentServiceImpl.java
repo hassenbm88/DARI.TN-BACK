@@ -3,6 +3,8 @@ package com.bezkoder.springjwt.Services;
 import java.util.Date;
 import java.util.List;
 
+import com.bezkoder.springjwt.repository.CommentDao;
+import com.bezkoder.springjwt.repository.ProductDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -10,8 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.bezkoder.springjwt.interfaces.CommentService;
 import com.bezkoder.springjwt.models.Comment;
 import com.bezkoder.springjwt.models.Product;
-import com.bezkoder.springjwt.repository.CommentDao;
-import com.bezkoder.springjwt.repository.ProductDao;
 
 //import com.ecommerce.dao.CommentDao;
 //import com.ecommerce.dao.ProductDao;

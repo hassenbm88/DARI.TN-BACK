@@ -1,5 +1,6 @@
 package com.bezkoder.springjwt.controllers;
 
+
 import com.bezkoder.springjwt.interfaces.*;
 //import com.ecommerce.service.CommentService;
 
@@ -9,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import com.bezkoder.springjwt.models.Comment;
-
 @RestController
 @RequestMapping(value = "/api")
 @CrossOrigin(origins = "*")
@@ -34,12 +34,10 @@ public class CommentController {
 	void deleteComment(@PathVariable long id) {
 		commentService.deleteComment(id);
 	}
-	//afficher les commentaires de chaque produit
 	@GetMapping("/findCommentsForProduct/{idProduct}")
 	List<Comment> findCommentsForProduct(@PathVariable long idProduct) {
 		return commentService.findCommentsForProduct(idProduct);
 	}
-	//afficher tous les commentaires
 	@GetMapping("/findAllComments")
 	List<Comment> findAllComments() {
 		return commentService.findAllComments();

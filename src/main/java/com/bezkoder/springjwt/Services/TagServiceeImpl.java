@@ -2,6 +2,8 @@ package com.bezkoder.springjwt.Services;
 
 import java.util.List;
 
+import com.bezkoder.springjwt.repository.ProductDao;
+import com.bezkoder.springjwt.repository.TagDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -9,8 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.bezkoder.springjwt.interfaces.TagService;
 import com.bezkoder.springjwt.models.Product;
 import com.bezkoder.springjwt.models.Tag;
-import com.bezkoder.springjwt.repository.ProductDao;
-import com.bezkoder.springjwt.repository.TagDao;
 
 //import com.ecommerce.dao.ProductDao;
 //import com.ecommerce.dao.TagDao;

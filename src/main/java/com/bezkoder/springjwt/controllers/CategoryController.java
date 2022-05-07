@@ -1,8 +1,6 @@
 package com.bezkoder.springjwt.controllers;
 
-import com.bezkoder.springjwt.interfaces.*;
-import java.util.List;
-
+import com.bezkoder.springjwt.interfaces.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,6 +16,8 @@ import com.bezkoder.springjwt.models.Category;
 
 //import com.ecommerce.modal.Category;
 //import com.ecommerce.service.CategoryService;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/api")
