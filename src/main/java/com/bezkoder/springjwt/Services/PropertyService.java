@@ -2,24 +2,21 @@ package com.bezkoder.springjwt.Services;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.bezkoder.springjwt.interfaces.*;
+import com.bezkoder.springjwt.models.*;
+import com.bezkoder.springjwt.repository.*;
 
-import com.bezkoder.springjwt.interfaces.PropertyInterface;
-import com.bezkoder.springjwt.models.Proprety;
-import com.bezkoder.springjwt.models.Visite;
-import com.bezkoder.springjwt.repository.PropertyRepository;
-import com.bezkoder.springjwt.repository.VisiteRepository;
 
 
 
 @Service
 public class PropertyService implements PropertyInterface {
-	@Autowired 
+	@Autowired
 	PropertyRepository prorep ;
-	@Autowired 
+	@Autowired
 	VisiteRepository vitrep;
 	@Override
 	public List<Proprety> retrieveAllProprety() {
@@ -35,19 +32,19 @@ public class PropertyService implements PropertyInterface {
 		return propretys;
 	}*/
 
-	 @Override
+	@Override
 	public Proprety addProprety(Proprety p) {
-		 
+
 		return prorep.save(p);
 	}
 
 	@Override
 	public Proprety updateProprety(Proprety p) {
-		
+
 		return prorep.save(p);
 	}
-	
-	
+
+
 	//public Proprety updateProprety(Proprety propretys ,  Long idVisite) {
 	//	Visite s = vitrep.findById(idVisite).orElse(null);
 	//	propretys.setVisite(s);
@@ -75,18 +72,32 @@ public class PropertyService implements PropertyInterface {
 		p1.setVisite(s);
 		prorep.save(p1);
 	}*/
-	
-	@Override
-	public void addAndassignVisitetoProperty(Proprety p,Long idProprety, Long idVisite) {
-		
-		prorep.save(p);
-		Proprety s =  prorep.findById(idProprety).orElse(null);
-		Visite v = vitrep.findById(idVisite).orElse(null);
-		 v.getProperties(); 
-		 vitrep.save(v);
-	}  
 
-	
+	//@Override
+	//public void addAndassignVisitetoProperty(Proprety p,Long idProprety, Long idVisite) {
+
+	//prorep.save(p);
+	//Proprety s =  prorep.findById(idProprety).orElse(null);
+	//Visite v = vitrep.findById(idVisite).orElse(null);
+	// v.getProperties();
+	// vitrep.save(v);
+	//}
+
+
+	/*@Override
+	public List<Proprety> getByNom(String nom)
+	{
+		return prorep.findByNom(nom);
+
+	}*/
+
+	@Override
+	public List<Proprety> retrievePropretysByName(String nom) {
+
+		return prorep.PropretyByName(nom);
+	}
+
+
 
 
 }

@@ -38,7 +38,7 @@ public class Proprety implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	
 	 Long idProprety;
-	 String Nom ;
+	 String nom ;
 	 float Surface ;
 	 String Adresse;
 	 String Region;

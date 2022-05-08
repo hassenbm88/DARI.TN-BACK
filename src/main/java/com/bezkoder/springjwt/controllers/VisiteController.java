@@ -23,45 +23,55 @@ import com.bezkoder.springjwt.models.Visite;
 @RestController
 @RequestMapping("/Visite")
 @CrossOrigin("*")
-public class VisiteController {@Autowired 
-	VisiteService vService ;  
+public class VisiteController {@Autowired
+VisiteService vService ;
 
-@GetMapping("/retrieve-visite")  
-@ResponseBody
-public List<Visite> getProprety() {
-List<Visite> listVisite = vService.retrieveAllVisite();
-return listVisite;
-}
-
-@PostMapping("/Add-Visite")
-@ResponseBody
-public void addVisite(@RequestBody  Visite v)
-{
-	vService.addVisite(v);
+	@GetMapping("/retrieve-visite")
+	@ResponseBody
+	public List<Visite> getProprety() {
+		List<Visite> listVisite = vService.retrieveAllVisite();
+		return listVisite;
 	}
 
-		@PutMapping("/update-Visite")
-		@ResponseBody
-		public Visite updateVisite(@RequestBody Visite v)
-		{
-			return vService.updateVisite(v);
-			 
-		}
-		
-		@GetMapping("/retrieve-Visite/{idViste}")  
-		@ResponseBody
-		public Visite getVisite(@PathVariable("idViste") Long idViste ) {
+	@PostMapping("/Add-Visite")
+	@ResponseBody
+	public void addVisite(@RequestBody  Visite v)
+	{
+		vService.addVisite(v);
+	}
+
+	@PutMapping("/update-Visite")
+	@ResponseBody
+	public Visite updateVisite(@RequestBody Visite v)
+	{
+		return vService.updateVisite(v);
+
+	}
+
+	@GetMapping("/retrieve-Visite/{idViste}")
+	@ResponseBody
+	public Visite getVisite(@PathVariable("idViste") Long idViste ) {
 		return vService.retrieveVisite(idViste);
-		
-		}
-		
-		@DeleteMapping("/removeVisite/{idViste}")
-		@ResponseBody
-		public void removeVisite(@PathVariable("idViste") Long idViste)
-		{
-			vService.removeVisite(idViste);
-		}
-		
+
+	}
+
+	@DeleteMapping("/removeVisite/{idViste}")
+	@ResponseBody
+	public void removeVisite(@PathVariable("idViste") Long idViste)
+	{
+		vService.removeVisite(idViste);
+	}
+
+	//http://localhost:8085/SpringMVC/Proprety/Assgin-visite/{Proprety-nom}
+
+	@PostMapping("/Assgin-visite/{Proprety-nom}")
+	@ResponseBody
+	public void addAndassignVisitetoProperty(@RequestBody Visite v ,@PathVariable("Proprety-nom")  String nom )
+	{
+		vService.addAndassignVisitetoProperty(v ,nom );
+		System.out.println("+++++++++++++++++++++");
+	}
+
 
 
 }

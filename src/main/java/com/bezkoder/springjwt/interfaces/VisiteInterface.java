@@ -14,6 +14,7 @@ public interface VisiteInterface {
 	Visite updateVisite (Visite v);
 	Visite retrieveVisite (Long id);
 	void removeVisite (Long id);
+	void addAndassignVisitetoProperty(Visite v, String nom ) ;
 	
 	
 

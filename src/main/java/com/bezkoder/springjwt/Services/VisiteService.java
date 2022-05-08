@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import com.bezkoder.springjwt.models.Proprety;
+import com.bezkoder.springjwt.repository.PropertyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,9 +17,11 @@ import com.bezkoder.springjwt.repository.VisiteRepository;
 @Service
 public class VisiteService implements VisiteInterface {
 
-	@Autowired 
+	@Autowired
 	VisiteRepository visiterep ;
-	
+	@Autowired
+	PropertyRepository prorep ;
+
 	@Override
 	public List<Visite> retrieveAllVisite() {
 		// TODO Auto-generated method stub
@@ -46,8 +50,18 @@ public class VisiteService implements VisiteInterface {
 	public void removeVisite(Long idViste) {
 		// TODO Auto-generated method stub
 		visiterep.deleteById(idViste);
-		
+
 	}
-	
+	@Override
+	public void addAndassignVisitetoProperty(Visite v, String nom) {
+
+		Proprety p =  prorep.findByNom(nom).orElse(null);
+		//System.out.println(p);
+		v.setProperties(p);
+		//System.out.println(v);
+		visiterep.save(v);
+	}
+
+
 
 }
