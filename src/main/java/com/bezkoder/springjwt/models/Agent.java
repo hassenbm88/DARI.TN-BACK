@@ -49,6 +49,8 @@ public class Agent implements Serializable {
     Long idAgent;
     String Name;
     String LastName;
+    @Enumerated(EnumType.STRING)
+    EnumAgent AgentState ;
 
 
 }
